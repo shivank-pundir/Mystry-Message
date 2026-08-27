@@ -58,9 +58,7 @@ const Dashboard = () => {
 
   const acceptMessages = watch("acceptMessages");
 
-  // ------------------------------------------
   // DELETE MESSAGE FROM UI
-  // ------------------------------------------
 
   const handleDeleteMessage = (messageId: string) => {
     setMessages((prevMessages) =>
@@ -70,10 +68,7 @@ const Dashboard = () => {
     );
   };
 
-  // ------------------------------------------
   // FETCH ACCEPT MESSAGE SETTING
-  // ------------------------------------------
-
   const fetchAcceptingMessage = useCallback(async () => {
     setIsSwitchLoading(true);
 
@@ -101,9 +96,7 @@ const Dashboard = () => {
     }
   }, [setValue]);
 
-  // ------------------------------------------
   // FETCH MESSAGES
-  // ------------------------------------------
 
   const fetchMessages = useCallback(
     async (refresh = false) => {
@@ -139,9 +132,8 @@ const Dashboard = () => {
     []
   );
 
-  // ------------------------------------------
   // INITIAL FETCH
-  // ------------------------------------------
+ 
 
   useEffect(() => {
     if (!session?.user) return;
@@ -154,9 +146,7 @@ const Dashboard = () => {
     fetchAcceptingMessage,
   ]);
 
-  // ------------------------------------------
   // HANDLE SWITCH
-  // ------------------------------------------
 
   const handleSwitchChange = async () => {
     const newValue = !acceptMessages;
@@ -192,9 +182,8 @@ const Dashboard = () => {
     }
   };
 
-  // ------------------------------------------
   // PROFILE URL
-  // ------------------------------------------
+
 
   const user = session?.user as User | undefined;
 
@@ -205,9 +194,7 @@ const Dashboard = () => {
       ? `${window.location.origin}/u/${username}`
       : "";
 
-  // ------------------------------------------
   // COPY PROFILE URL
-  // ------------------------------------------
 
   const copyToClipboard = async () => {
     if (!profileUrl) return;
@@ -231,9 +218,8 @@ const Dashboard = () => {
     }
   };
 
-  // ------------------------------------------
   // LOADING
-  // ------------------------------------------
+
 
   if (status === "loading") {
     return (
@@ -251,9 +237,7 @@ const Dashboard = () => {
     );
   }
 
-  // ------------------------------------------
   // NOT LOGGED IN
-  // ------------------------------------------
 
   if (!session?.user) {
     return (
@@ -277,17 +261,13 @@ const Dashboard = () => {
     );
   }
 
-  // ------------------------------------------
   // DASHBOARD
-  // ------------------------------------------
 
   return (
     <div className="min-h-screen bg-[#faf9f7] text-slate-900">
       <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
 
-        {/* ==========================================
-            HEADER
-        ========================================== */}
+        //    HEADER
 
         <header className="mb-8">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
@@ -323,9 +303,8 @@ const Dashboard = () => {
           </div>
         </header>
 
-        {/* ==========================================
-            PROFILE LINK
-        ========================================== */}
+        
+          //  PROFILE LINK
 
         <Card className="mb-6 overflow-hidden border-stone-200 bg-white shadow-sm">
           <CardContent className="p-5 sm:p-6">
@@ -367,9 +346,8 @@ const Dashboard = () => {
           </CardContent>
         </Card>
 
-        {/* ==========================================
-            CONTROL CARDS
-        ========================================== */}
+          //  CONTROL CARDS
+      
 
         <div className="mb-10 grid gap-4 md:grid-cols-2">
 
@@ -483,9 +461,7 @@ const Dashboard = () => {
           </Card>
         </div>
 
-        {/* ==========================================
-            MESSAGES HEADER
-        ========================================== */}
+         //   MESSAGES HEADER
 
         <div className="mb-5 flex items-end justify-between">
           <div>
@@ -507,9 +483,9 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* ==========================================
-            LOADING
-        ========================================== */}
+    
+           // LOADING
+      
 
         {isLoading && messages.length === 0 ? (
           <div className="flex min-h-64 items-center justify-center rounded-2xl border border-stone-200 bg-white">
@@ -525,9 +501,7 @@ const Dashboard = () => {
           </div>
         ) : messages.length === 0 ? (
 
-          /* ==========================================
-             EMPTY STATE
-          ========================================== */
+            // EMPTY STATE
 
           <Card className="border-dashed border-stone-300 bg-white shadow-sm">
             <CardContent className="flex flex-col items-center justify-center px-6 py-20 text-center">
@@ -558,9 +532,7 @@ const Dashboard = () => {
 
         ) : (
 
-          /* ==========================================
-             MESSAGE GRID
-          ========================================== */
+         //    MESSAGE GRID
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {messages.map((message) => (
@@ -572,11 +544,9 @@ const Dashboard = () => {
             ))}
           </div>
         )}
-
-        {/* ==========================================
-            PRIVACY FOOTER
-        ========================================== */}
-
+        
+        //    PRIVACY FOOTER
+     
         <div className="mt-10 flex items-center justify-center gap-2 text-xs text-slate-400">
           <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
 
