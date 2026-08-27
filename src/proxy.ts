@@ -30,17 +30,17 @@ export async function proxy(request: NextRequest) {
     );
   }
 
-  // Handle home route
+  // Handle root route
   if (pathname === "/") {
+    // Logged-in user → dashboard
     if (token) {
       return NextResponse.redirect(
         new URL("/dashboard", request.url)
       );
     }
 
-    return NextResponse.redirect(
-      new URL("/home", request.url)
-    );
+    // Logged-out user → stay on homepage
+    return NextResponse.next();
   }
 
   return NextResponse.next();
