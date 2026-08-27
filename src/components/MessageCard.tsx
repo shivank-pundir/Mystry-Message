@@ -44,7 +44,7 @@ const MessageCard = ({
         description: response.data.message,
       });
 
-      onMessageDelete(message._id);
+      onMessageDelete(message._id.toString());
     } catch (error) {
       console.error("Delete message error:", error);
 
