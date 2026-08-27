@@ -267,7 +267,7 @@ const Dashboard = () => {
     <div className="min-h-screen bg-[#faf9f7] text-slate-900">
       <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
 
-        //    HEADER
+       
 
         <header className="mb-8">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
@@ -304,7 +304,7 @@ const Dashboard = () => {
         </header>
 
         
-          //  PROFILE LINK
+          
 
         <Card className="mb-6 overflow-hidden border-stone-200 bg-white shadow-sm">
           <CardContent className="p-5 sm:p-6">
@@ -346,7 +346,7 @@ const Dashboard = () => {
           </CardContent>
         </Card>
 
-          //  CONTROL CARDS
+       
       
 
         <div className="mb-10 grid gap-4 md:grid-cols-2">
@@ -461,7 +461,6 @@ const Dashboard = () => {
           </Card>
         </div>
 
-         //   MESSAGES HEADER
 
         <div className="mb-5 flex items-end justify-between">
           <div>
@@ -484,7 +483,6 @@ const Dashboard = () => {
         </div>
 
     
-           // LOADING
       
 
         {isLoading && messages.length === 0 ? (
@@ -532,7 +530,7 @@ const Dashboard = () => {
 
         ) : (
 
-         //    MESSAGE GRID
+        
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {messages.map((message) => (
@@ -545,8 +543,7 @@ const Dashboard = () => {
           </div>
         )}
         
-        //    PRIVACY FOOTER
-     
+      
         <div className="mt-10 flex items-center justify-center gap-2 text-xs text-slate-400">
           <CheckCircle2 className="h-3.5 w-3.5 text-emerald-500" />
 
